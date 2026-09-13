@@ -1,0 +1,140 @@
+main {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+header h1 {
+  margin: 0 0 0.25rem;
+  font-size: 2rem;
+}
+
+header p {
+  margin: 0 0 2rem;
+  opacity: 0.7;
+}
+
+.panel {
+  background: light-dark(#ffffff, #22252a);
+  border: 1px solid light-dark(#e3e5e8, #32363c);
+  border-radius: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.panel h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.upload-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+button {
+  border: 0;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font: inherit;
+  font-weight: 500;
+  background: #2563eb;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button.danger {
+  background: #dc2626;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid light-dark(#eceef1, #32363c);
+}
+
+th {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  opacity: 0.6;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.status {
+  margin: 0.75rem 0 0;
+  opacity: 0.8;
+}
+
+.error {
+  color: #dc2626;
+  font-weight: 500;
+}
+
+.auth-panel p {
+  margin-bottom: 1rem;
+}
+
+.account-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+button.secondary {
+  background: #475569;
+}
+
+@media (max-width: 40rem) {
+  header,
+  .account-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  table,
+  thead,
+  tbody,
+  tr,
+  td {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    border-bottom: 1px solid light-dark(#eceef1, #32363c);
+    padding: 0.5rem 0;
+  }
+
+  td {
+    border: 0;
+    padding: 0.15rem 0;
+  }
+}

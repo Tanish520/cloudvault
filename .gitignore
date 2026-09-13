@@ -1,0 +1,26 @@
+.worktrees/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+terraform.tfvars
+crash.log
+
+# Lambda packages
+*.zip
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# OS and editor
+.DS_Store
+.vscode/

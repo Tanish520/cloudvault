@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="cloudvault--serverless-file-storage">CloudVault — Serverless File Storage</h1>
+<p>CloudVault is a private, serverless file-storage application built on AWS. It allows users to create an account, sign in, and manage files that are isolated from every other user's data.</p>
+<p>The project combines a React frontend, a Python Lambda backend, managed AWS services, and reproducible Terraform infrastructure.</p>
+<h2 id="highlights">Highlights</h2>
+<ul>
+<li>Email signup, verification, sign-in, sign-out, and password recovery through Amazon Cognito</li>
+<li>JWT-protected API routes with API Gateway request throttling</li>
+<li>Per-user isolation across API operations, DynamoDB records, and S3 object keys</li>
+<li>Direct browser-to-S3 uploads and downloads using short-lived presigned URLs</li>
+<li>Serverless backend with no continuously running application server</li>
+<li>Infrastructure defined as code with Terraform</li>
+<li>Automated backend and authentication tests</li>
+</ul>
+<h2 id="architecture">Architecture</h2>
+<pre><code class="language-mermaid"><div class="mermaid">flowchart LR
+    U[User] --> F[React + Vite frontend]
+    F -->|Sign up / Sign in| C[Amazon Cognito]
+    C -->|JWT access token| F
+    F -->|Authenticated request| A[Amazon API Gateway]
+    A -->|Verified user identity| L[Python AWS Lambda]
+    L -->|File metadata| D[Amazon DynamoDB]
+    L -->|Create presigned URL| S[Amazon S3]
+    F -->|Direct upload / download| S
+    L --> W[Amazon CloudWatch]
+    T[Terraform] -.-> C
+    T -.-> A
+    T -.-> L
+    T -.-> D
+    T -.-> S
+    T -.-> W
+</div></code></pre>
+<h3 id="request-flow">Request flow</h3>
+<ol>
+<li>The user authenticates through the Cognito managed login. AWS Amplify Auth manages the browser authentication flow and session.</li>
+<li>The frontend attaches the Cognito access token to each API request.</li>
+<li>API Gateway validates the JWT before forwarding the request to Lambda.</li>
+<li>Lambda reads the verified Cognito user ID and uses it to scope every file operation.</li>
+<li>For uploads and downloads, Lambda returns a short-lived S3 presigned URL. File data travels directly between the browser and S3 rather than through Lambda.</li>
+<li>DynamoDB stores file metadata, while S3 stores the file contents.</li>
+</ol>
+<h2 id="aws-services">AWS services</h2>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Amazon Cognito</td>
+<td>User registration, email verification, managed login, and token issuance</td>
+</tr>
+<tr>
+<td>Amazon API Gateway</td>
+<td>HTTP API routing, JWT authorization, CORS, and request throttling</td>
+</tr>
+<tr>
+<td>AWS Lambda</td>
+<td>File-management API and presigned URL generation</td>
+</tr>
+<tr>
+<td>Amazon S3</td>
+<td>Encrypted file storage and direct presigned transfers</td>
+</tr>
+<tr>
+<td>Amazon DynamoDB</td>
+<td>Per-user file metadata</td>
+</tr>
+<tr>
+<td>Amazon CloudWatch</td>
+<td>Lambda logs, retention, and error monitoring</td>
+</tr>
+<tr>
+<td>AWS IAM</td>
+<td>Least-privilege permissions for the Lambda function</td>
+</tr>
+<tr>
+<td>Terraform</td>
+<td>Repeatable provisioning and removal of the AWS stack</td>
+</tr>
+</tbody>
+</table>
+<h2 id="technology-stack">Technology stack</h2>
+<ul>
+<li><strong>Frontend:</strong> React 19, Vite, AWS Amplify Auth</li>
+<li><strong>Backend:</strong> Python 3.13, AWS Lambda, Boto3</li>
+<li><strong>API and authentication:</strong> API Gateway HTTP API, Amazon Cognito, JWT</li>
+<li><strong>Storage:</strong> Amazon S3, Amazon DynamoDB</li>
+<li><strong>Infrastructure:</strong> Terraform</li>
+<li><strong>Testing:</strong> pytest, Moto, Node.js test runner</li>
+</ul>
+<h2 id="security-model">Security model</h2>
+<p>CloudVault does not trust a user ID supplied by the browser. API Gateway verifies the Cognito access token, and Lambda derives ownership from the verified <code>sub</code> claim. That identity is included in DynamoDB keys and S3 paths so one authenticated user cannot list, download, or delete another user's files through the API.</p>
+<p>Additional controls include:</p>
+<ul>
+<li>A Cognito application client without a client secret, suitable for a browser application</li>
+<li>OAuth authorization-code flow with PKCE, managed by Amplify Auth</li>
+<li>Short-lived presigned upload and download URLs</li>
+<li>S3 public-access blocking and server-side encryption</li>
+<li>Upload size and content validation</li>
+<li>API Gateway throttling at 5 requests per second with a burst capacity of 10</li>
+<li>Restricted CORS configuration and scoped Lambda permissions</li>
+</ul>
+<h2 id="repository-structure">Repository structure</h2>
+<pre class="hljs"><code><div>cloudvault/
+├── frontend/          React application and Amplify Auth integration
+├── backend/
+│   ├── app/           Python Lambda handler and file operations
+│   └── tests/         Backend and infrastructure contract tests
+├── terraform/         AWS infrastructure definitions
+└── docs/              Architecture notes and implementation plans
+</div></code></pre>
+<h2 id="run-locally">Run locally</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>Node.js 20 or later and npm</li>
+<li>Python 3.13 and pip</li>
+<li>Terraform 1.x</li>
+<li>AWS CLI configured with credentials for an AWS account</li>
+</ul>
+<p>AWS resources incur usage charges. Review the Terraform plan before applying it and destroy the stack when it is no longer needed.</p>
+<h3 id="1-provision-the-aws-infrastructure">1. Provision the AWS infrastructure</h3>
+<pre class="hljs"><code><div>terraform -<span class="hljs-built_in">chdir</span>=terraform init
+terraform -<span class="hljs-built_in">chdir</span>=terraform plan
+terraform -<span class="hljs-built_in">chdir</span>=terraform apply
+</div></code></pre>
+<p>Terraform prints the API URL and Cognito values required by the frontend:</p>
+<pre class="hljs"><code><div>terraform -<span class="hljs-built_in">chdir</span>=terraform output
+</div></code></pre>
+<h3 id="2-configure-the-frontend">2. Configure the frontend</h3>
+<pre class="hljs"><code><div>cp frontend/.env.example frontend/.env
+</div></code></pre>
+<p>Replace the example values in <code>frontend/.env</code> with the corresponding Terraform outputs:</p>
+<pre class="hljs"><code><div>VITE_API_URL=&lt;api_url&gt;
+VITE_COGNITO_USER_POOL_ID=&lt;cognito_user_pool_id&gt;
+VITE_COGNITO_USER_POOL_CLIENT_ID=&lt;cognito_user_pool_client_id&gt;
+VITE_COGNITO_DOMAIN=&lt;cognito_domain&gt;
+</div></code></pre>
+<h3 id="3-start-the-application">3. Start the application</h3>
+<pre class="hljs"><code><div><span class="hljs-built_in">cd</span> frontend
+npm install
+npm run dev
+</div></code></pre>
+<p>Open <code>http://localhost:5173</code>, create an account, verify the email address, and sign in.</p>
+<h2 id="verification">Verification</h2>
+<p>Run the backend tests:</p>
+<pre class="hljs"><code><div>python3 -m venv .venv
+<span class="hljs-built_in">source</span> .venv/bin/activate
+pip install -r backend/requirements-dev.txt
+pytest
+</div></code></pre>
+<p>Run the frontend checks:</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">cd</span> frontend
+npm install
+npm <span class="hljs-built_in">test</span>
+npm run lint
+npm run build
+</div></code></pre>
+<p>Validate the Terraform configuration:</p>
+<pre class="hljs"><code><div>terraform -<span class="hljs-built_in">chdir</span>=terraform init -backend=<span class="hljs-literal">false</span>
+terraform -<span class="hljs-built_in">chdir</span>=terraform validate
+</div></code></pre>
+<h2 id="remove-the-aws-resources">Remove the AWS resources</h2>
+<p>To avoid retaining resources and associated charges:</p>
+<pre class="hljs"><code><div>terraform -<span class="hljs-built_in">chdir</span>=terraform destroy
+</div></code></pre>
+<p>This permanently removes the Terraform-managed CloudVault stack, including stored files and registered Cognito users.</p>
+
+</body>
+</html>
